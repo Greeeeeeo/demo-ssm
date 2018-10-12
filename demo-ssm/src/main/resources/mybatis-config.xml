@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+		PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<!-- 
+	<settings>
+		<setting name="cacheEnabled" value="true"/>
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<setting name="multipleResultSetsEnabled" value="true"/>
+		<setting name="useColumnLabel" value="true"/>
+		<setting name="useGeneratedKeys" value="false"/>
+		<setting name="autoMappingBehavior" value="PARTIAL"/>
+		<setting name="defaultExecutorType" value="SIMPLE"/>
+		<setting name="defaultStatementTimeout" value="25"/>
+		<setting name="safeRowBoundsEnabled" value="false"/>
+		<setting name="mapUnderscoreToCamelCase" value="false"/>
+		<setting name="localCacheScope" value="SESSION"/>
+		<setting name="jdbcTypeForNull" value="OTHER"/>
+		<setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
+	</settings> 
+	-->
+
+	<!-- 逆向工程驼峰命名规则 -->
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="false"/>
+	</settings>
+
+	<!-- 导入外部资源文件 -->
+	<!-- <properties resource="db.properties"/> -->
+
+	<!-- 配置别名 -->
+	<typeAliases>
+		<package name="net.drfeel.ssm.entity"/>
+	</typeAliases>
+
+	<!-- 分页插件 -->
+	<plugins>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor">
+			<!--分页参数合理化  -->
+			<property name="" value="true"/>
+		</plugin>
+	</plugins>
+
+	<!-- 连接环境配置, 支持多环境, 但每个 SqlSessionFactory 只能选择一个 -->
+	<!-- 
+	<environments default="development">
+		<environment id="development">
+			事务管理器的配置
+			<transactionManager type="JDBC" />
+			数据源连接池的实现配置(UNPOOLED/JNDI)
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driverClass}" />
+				<property name="url" value="${jdbc.jdbcUrl}" />
+				<property name="username" value="${jdbc.user}" />
+				<property name="password" value="${jdbc.password}" />
+				<property name="driver.encoding" value="${jdbc.driver.encoding}" />
+				<property name="poolMaximumActiveConnections" value="${jdbc.maxSize}" />
+				<property name="poolMaximumIdleConnections" value="${jdbc.maxIdleSize}" />
+			</dataSource>
+		</environment>
+	</environments> 
+	-->
+
+	<!-- 映射关系配置 -->
+	<!-- 如果在 applicationContext 中配置了自动扫描则无需此配置 -->
+	<!-- <mappers>
+		<package name="net.drfeel.mspring.mapper"/>
+	</mappers> -->
+
+</configuration>
